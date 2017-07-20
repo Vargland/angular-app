@@ -1,2 +1,4 @@
+require('angular')
 require('./src')
+
 
