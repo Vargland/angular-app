@@ -12,17 +12,6 @@ angular.module("myApp") //module: donde se definen los componentes -> podes pone
         }]
     })
 
-    .component("chauoer", { //
-        template: require("./chauoer.html"),
-        controller: ['reloj', function(reloj) {
-
-            this.detener = function () {
-                console.log('DETENER!');
-                reloj.detenerReloj();
-            }
-        }]
-    })
-
     .service("reloj", function() {
         var intervalRef;
         
