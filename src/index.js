@@ -1,4 +1,6 @@
-import angular from 'angular';
-import _ from 'lodash';
+angular.module("myApp", [])
 
-//hola {{ quien }}
+require('./components');
+
+    
+    
