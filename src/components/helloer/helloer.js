@@ -1,9 +1,9 @@
-import angular from 'angular'
+import angular from 'angular';
 
 angular.module("myApp") //module: donde se definen los componentes -> podes ponerle todos los comp. que quieras
-    .component("helloer", { //
+    .component("helloer", { 
         template: require("./helloer.html"),
-        controller: ['reloj', function(reloj) {
+        controller: ['reloj', function (reloj) {
 
             this.iniciar = function () {
                 console.log('HOLA!');
@@ -12,19 +12,18 @@ angular.module("myApp") //module: donde se definen los componentes -> podes pone
         }]
     })
 
-    .service("reloj", function() {
+    .service("reloj", function () {
         var intervalRef;
         
-        this.iniciarReloj = function(ms){
+        this.iniciarReloj = function (ms) {
             intervalRef = setInterval(() => {
-                console.log('Tick' + new Date().getTime());
+                console.log('Tick => ' + new Date().getTime());
             }, ms);
         }
 
-        this.detenerReloj = function(){
+        this.detenerReloj = function () {
             clearInterval(intervalRef);
         }
-
     })   
 
 
