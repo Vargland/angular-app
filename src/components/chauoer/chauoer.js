@@ -6,7 +6,6 @@ angular.module("myApp")
         controller: ['reloj', function(reloj) {
 
             this.detener = function () {
-                console.log('DETENER!');
                 reloj.detenerReloj();
             }
         }]
