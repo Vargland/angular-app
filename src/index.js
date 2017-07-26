@@ -1,5 +1,4 @@
-angular.module("myApp", [])
-
+angular.module("myApp", []);
 require('./components');
 
     
