@@ -8,7 +8,6 @@ angular.module("myApp")
     .controller('todoController', function($scope) {
         $scope.todo = [];
         $scope.editedTodo = null;
-        
        
         $scope.addAct = () => {
             $scope.todo.push({
@@ -26,12 +25,17 @@ angular.module("myApp")
 
         $scope.saveAct = (index) => {
             $scope.todo[index].editable = false;
-        }   
+        },
+        
+        $scope.doneAct = (index) => {
+            $scope.todo[index].done = !$scope.todo[index].done;
+        },
 
         $scope.deleteAct = (index) => {
             $scope.todo.splice(index, 1);
         }
     })
+
 
     
 
