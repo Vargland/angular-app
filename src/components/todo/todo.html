@@ -1,0 +1,43 @@
+<div ng-controller="todoController">
+    <div class="panel panel-info">
+        <div class="panel-heading">Panel heading</div>
+        <div class="panel-body">
+            <form class="form-inline" ng-submit="addAct()">
+                <div class="form-group">
+                    <input class="form-control" type='text' ng-model='newAct.description' />
+                </div>
+                <button class="btn btn-default btn-sm btn-block form-control" type='submit'>Add</button>
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <div>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Activities</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="act in todo track by $index">
+                    <th scope="row">
+                        </td>
+                            <span ng-bind="$index +1"></span>
+                        </td>
+                        <td>
+                            <label>
+                                <input ng-click="doneAct($index)" type="checkbox">
+                                <span ng-dblclick="editAct($index)" ng-class="{'is-done': act.done}" ng-hide="act.editable">{{act.description}}</span>
+                                <input ng-show="act.editable" ng-blur="saveAct($index)" ng-model="act.description"/>
+                            </label>
+                        </td>
+                        <td>
+                            <span type="button" class="glyphicon glyphicon-remove" ng-click="deleteAct($index)">  </span>
+                        </td>
+                    </th>
+                </tr>
+            </tbody>
+        </div>
+    </table>
+</div>

@@ -1,1 +1,4 @@
-<button ng-click="$ctrl.getList()" >getlist</button>
+<button ng-click="$ctrl.getList()">getlist</button>
+<ul class="list-unstyled">    
+    <li ng-repeat="item in $ctrl.elements"> {{item}} </li>
+</ul>

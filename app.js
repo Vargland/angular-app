@@ -1,4 +1,4 @@
-require('angular')
-require('./src')
+require('angular');
+require('./src');
 
 
