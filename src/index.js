@@ -1,6 +1,3 @@
 angular.module("myApp", []);
 require('./Components');
-require('./Redux');
-
-    
-    
+require('./Redux');   

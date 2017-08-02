@@ -1,6 +1,7 @@
 import './todo.scss';
 import _ from 'lodash';
 import angular from 'angular';
+import Redux from 'redux';
 
 
 angular.module("myApp")
