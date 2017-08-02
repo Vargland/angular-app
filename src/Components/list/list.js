@@ -1,8 +1,6 @@
 import _ from 'lodash';
 import angular from 'angular';
 
-
-
 angular.module("myApp")
     .component("elementList", {
         template: require("./list.html"),

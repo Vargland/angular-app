@@ -1,5 +1,6 @@
 angular.module("myApp", []);
-require('./components');
+require('./Components');
+require('./Redux');
 
     
     
