@@ -1,8 +1,5 @@
 import './actions';
+import './constants';
+import './creators';
 import './reducers';
 import './store';
-
-import ngRedux from 'ng-redux';
-import getMockTodo from './mock'
-
-console.log(getMockTodo());
