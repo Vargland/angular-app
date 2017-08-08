@@ -1,9 +1,8 @@
 import './todo.scss';
 import _ from 'lodash';
-import * as types from '../../Redux/constants';
+import * as type from '../../Redux/constants';
 import angular from 'angular';
 import actionFetch from '../../Redux/actions';
-import Redux from 'redux';
 
 angular.module("myApp")
     .component('todo', {
@@ -38,7 +37,7 @@ angular.module("myApp")
 
         $scope.importantAct = (index) => {
             $scope.todo[index].important = !$scope.todo[index].important
-        }
+        },
 
         $scope.deleteAct = (index) => {
             $scope.todo.splice(index, 1);

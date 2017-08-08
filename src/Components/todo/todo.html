@@ -1,8 +1,8 @@
-<div ng-controller="todoController">
-    <div class="panel panel-info">
+<div>
+    <div class="panel panel-info" >
         <div class="panel-heading">Panel heading</div>
         <div class="panel-body">
-            <form class="form-inline" ng-submit="addAct()">
+            <form class="form-inline" ng-submit="$ctrl.addAct()">
                 <div class="form-group">
                     <input class="form-control" type='text' ng-model='newAct.description' />
                 </div>
@@ -20,6 +20,15 @@
                 </tr>
             </thead>
             <tbody>
+                <tr ng-init="$ctrl.fetchTask()"> 
+                    <td ng-repeat="act in todo track by $ctrl" > 
+                        <label>
+                            <input ng-click="doneAct($index)" type="checkbox">
+                            <span ng-dblclick="editAct($index)" ng-class="{'is-done': act.done}" ng-hide="act.editable">{{act.description}}</span>
+                            <input ng-show="act.editable" ng-blur="saveAct($index)" ng-model="act.description"/>
+                        </label>
+                    </td>
+                </tr>
                 <tr ng-repeat="act in todo track by $index">
                     <th scope="row">
                         </td>

@@ -1,32 +1,36 @@
 import _ from 'lodash';
+import mock from '../mock';
 import type from '../constants'
 
 const initialState = {
     isFetching: false,
     error: null,
-    items: []
+    todo: mock()
 };
 
-export default (oldState = initialState, action) => {
+export default (state = initialState, action) => {
     let actionType = action.type;
 
     switch (actionType) {
         case 'FETCH_TODO':
-            return Object.assign({}, oldState, {
+            return Object.assign({}, state, {
                 isFetching: true
             });
+       
         case 'FETCH_TODO_SUCCESS':
-            return Object.assign({}, oldState, {
-                isFetching: false,
-                items: action.items
-            });
+            let newState = angular.extend({}, state);
+
+            return newState;
+                    
         case 'FETCH_TODO_ERROR':
-            return Object.assign({}, oldState, {
+            return Object.assign({}, state, {
                 isFetching: false,
-                error: action.error
-            })
+                error: action.error,
+                todo: []
+            });
+        
         default:
-            return oldState;
+            return state;
     }
 }
 
