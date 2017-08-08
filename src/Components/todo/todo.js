@@ -1,10 +1,15 @@
+import './todo.scss';
 import _ from 'lodash';
+import * as types from '../../Redux/constants';
 import angular from 'angular';
+import actionFetch from '../../Redux/actions';
+import Redux from 'redux';
 
 angular.module("myApp")
     .component('todo', {
-        template: require('./todo.html')
+        template: require('./todo.html') 
     })
+
     .controller('todoController', function($scope) {
         $scope.todo = [];
         $scope.editedTodo = null;
@@ -31,36 +36,11 @@ angular.module("myApp")
             $scope.todo[index].done = !$scope.todo[index].done;
         },
 
+        $scope.importantAct = (index) => {
+            $scope.todo[index].important = !$scope.todo[index].important
+        }
+
         $scope.deleteAct = (index) => {
             $scope.todo.splice(index, 1);
         }
     })
-
-
-    
-
-
-
-
-
-
-
-    /*  $scope.checkAct = () => {
-            $scope.toDo.push({
-                done: true
-            })
-        }, 
-
-        $scope.removeAct = () => {
-            let oldList = $scope.toDo;
-
-            $scope.toDo = [];
-            angular.forEach(oldList, (x) => {
-                (!x.done) ? $scope.toDo.push(x) : alert('Nothing to clear');
-                console.log($scope.toDo);
-            })
-        }
-     */
-   
-
-

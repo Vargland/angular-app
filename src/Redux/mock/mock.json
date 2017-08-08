@@ -1,0 +1,12 @@
+{
+    "todo" :  
+        [
+            {  
+                
+                "description": "Redux mockData" ,
+                "done": false,
+                "important": false,
+                "editable": false              
+            }
+        ]
+}

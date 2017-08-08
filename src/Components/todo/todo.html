@@ -33,6 +33,7 @@
                             </label>
                         </td>
                         <td>
+                            <span type="button" ng-class="{'glyphicon glyphicon-star-empty': !act.important, 'glyphicon glyphicon-star': act.important, 'is-important': act.important}" ng-click="importantAct($index)">  </span>
                             <span type="button" class="glyphicon glyphicon-remove" ng-click="deleteAct($index)">  </span>
                         </td>
                     </th>
