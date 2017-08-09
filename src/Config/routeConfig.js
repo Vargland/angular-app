@@ -9,7 +9,6 @@ export default function(myApp) {
         },
       })
       .state('index.todo', {
-        url: '/',
         template: '<todo></todo>',
       });
   }

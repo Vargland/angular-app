@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.5",
     "angular": "^1.6.5",
     "angular-localstorage": "^1.1.5",
     "angular-route": "^1.6.5",
-    "angular-ui-router": "^1.0.3",
+    "angular-ui-router": "^1.0.0-rc.1",
     "lodash": "^4.17.4",
     "ng-redux": "^3.4.1",
     "node-sass": "^4.5.3",
