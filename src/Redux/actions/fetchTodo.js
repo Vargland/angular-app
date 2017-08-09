@@ -1,5 +1,5 @@
 import * as type from "../constants";
 
-export default function actionFetch(type, data) {
-  return { type, data };
+export default function actionTrigger(type, data, description = null) {
+  return { type, data, description };
 }

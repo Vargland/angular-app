@@ -1,10 +1,10 @@
-<div ng-controller="todoController">
-    <div class="panel panel-info">
+<div>
+    <div class="panel panel-info" >
         <div class="panel-heading">Panel heading</div>
         <div class="panel-body">
-            <form class="form-inline" ng-submit="addAct()">
+            <form class="form-inline" ng-submit="$ctrl.addAct()">
                 <div class="form-group">
-                    <input class="form-control" type='text' ng-model='newAct.description' />
+                    <input class="form-control" type='text' ng-model='$ctrl.newAct' />
                 </div>
                 <button class="btn btn-default btn-sm btn-block form-control" type='submit'>Add</button>
             </form>
@@ -20,21 +20,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="act in todo track by $index">
+                <tr ng-repeat="act in $ctrl.todo.todo track by $index">
                     <th scope="row">
                         </td>
                             <span ng-bind="$index +1"></span>
                         </td>
                         <td>
                             <label>
-                                <input ng-click="doneAct($index)" type="checkbox">
-                                <span ng-dblclick="editAct($index)" ng-class="{'is-done': act.done}" ng-hide="act.editable">{{act.description}}</span>
-                                <input ng-show="act.editable" ng-blur="saveAct($index)" ng-model="act.description"/>
+                                <input ng-click="$ctrl.doneAct($index)" type="checkbox">
+                                <span ng-dblclick="$ctrl.editAct($index)" ng-class="{ 'is-done': act.done }" ng-hide="act.editable">{{act.description}}</span>
+                                <input ng-show="act.editable" ng-blur="$ctrl.saveAct($index, act.description)" ng-model="act.description"/>
                             </label>
                         </td>
                         <td>
-                            <span type="button" ng-class="{'glyphicon glyphicon-star-empty': !act.important, 'glyphicon glyphicon-star': act.important, 'is-important': act.important}" ng-click="importantAct($index)">  </span>
-                            <span type="button" class="glyphicon glyphicon-remove" ng-click="deleteAct($index)">  </span>
+                            <span type="button" ng-class="{ 'glyphicon glyphicon-star-empty': !act.important, 'glyphicon glyphicon-star': act.important, 'is-important': act.important }" ng-click="$ctrl.importantAct($index)"></span>
+                            <span type="button" class="glyphicon glyphicon-remove remove-activity" ng-click="$ctrl.deleteAct($index)">  </span>
                         </td>
                     </th>
                 </tr>
