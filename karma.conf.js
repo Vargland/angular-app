@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Thu Aug 10 2017 11:37:52 GMT-0300 (ART)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -13,35 +13,70 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     plugins: [
-     'karma-jasmine',
-     'karma-chrome-launcher',
-     'karma-babel-preprocessor'
+      'karma-webpack',
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-babel-preprocessor'
     ],
-
 
     // list of files / patterns to load in the browser
     files: [
-      './src/test/todo.js',
-      './node_modules/angular/angular.js',  
-      './node_modules/angular-ui-router/release/angular-ui-router.js',         
-      './node_modules/angular-mocks/angular-mocks.js'
+      './node_modules/angular/angular.js',
+      './node_modules/angular-ui-router/release/angular-ui-router.js',
+      './node_modules/angular-mocks/angular-mocks.js',
+      './src/test/todoTest.js'
     ],
 
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      "./src/test/todoTest.js": ["webpack"]
     },
 
+    webpack: {
+      module: {
+        rules: [
+          {
+            test: /\.html$/,
+            use: [{
+              loader: 'html-loader',
+              options: {
+                minimize: true
+              }
+            }]
+          },
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+          },
+          {
+            test: /\.scss$/,
+            use: ['style-loader', 'css-loader']
+          }
+        ]
+      },
+    },
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    webpackMiddleware: {
+      // webpack-dev-middleware configuration
+      // i.e.
+      noInfo: true,
+      // and use stats to turn off verbose output
+      stats: {
+        // options i.e. 
+        chunks: false
+      }
+    },
+
+    /* plugins: [
+        require("karma-webpack")
+    ], */
+
     reporters: ['progress'],
 
 
@@ -70,22 +105,6 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
-
-    preprocessors: {
-      './src//*.js' : ['babel'],
-    },
-    babelPreprocessor: {
-      options: {
-        presets: ['es2015'],
-        sourceMap: 'inline'
-      },
-      filename: function (file) {
-        return file.originalPath.replace(/\.js$/, '.es5.js');
-      },
-      sourceFileName: function (file) {
-        return file.originalPath;
-      }
-    },
 
     // Concurrency level
     // how many browser should be started simultaneous

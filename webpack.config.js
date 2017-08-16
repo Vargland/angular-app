@@ -11,8 +11,17 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/,
-                use: 'raw-loader'
+                use: [{
+                    loader: 'html-loader',
+                    options: {
+                        minimize: true
+                    }
+                }]
             },
+           /*  {
+                test: /\.html$/,
+                use: 'raw-loader'
+            }, */
             {
                 test: /\.css$/, 
                 use: [ 'style-loader', 'css-loader' ]
