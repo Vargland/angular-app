@@ -23,7 +23,7 @@ module.exports = function (config) {
     files: [
       './node_modules/angular/angular.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/angular-mocks/angular-mocks.js',
+      './node_modules/angular-route/angular-route.js',
       './src/test/todoTest.js'
     ],
 
@@ -35,11 +35,18 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "./src/test/todoTest.js": ["webpack"]
+      "./src/test/*.js": ["webpack"]
     },
 
     webpack: {
       module: {
+        loaders: [
+          {
+            test: /\.js$/,
+            loader: 'babel?presets=es2015',
+            exclude: /node_modules/
+          }
+        ],
         rules: [
           {
             test: /\.html$/,
@@ -57,7 +64,7 @@ module.exports = function (config) {
           {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader']
-          }
+          },
         ]
       },
     },

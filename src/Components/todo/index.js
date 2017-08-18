@@ -1,12 +1,16 @@
-import todoController from './todoController';
+import todoCtrl from './todoController';
 import template from './todo.html';
 import styles from './todo.scss';
 
-export default angular
+const todoController = angular
     .module('myApp.todo', [])
     .component('todo', {
         template,
         styles,
-        controller: todoController,
+        controller: todoCtrl,
     })
     .name;
+
+    console.log(todoController)
+
+export default todoController;
