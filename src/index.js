@@ -31,8 +31,6 @@ myApp.config(routeConfig(myApp));
 // Load Redux config
 myApp.config(reduxConfig);
 
-console.log(myApp);
-
 export default myApp;
 
 //https://github.com/dmachat/redux-ui-router-sample

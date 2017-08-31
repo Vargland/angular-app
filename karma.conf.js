@@ -24,18 +24,21 @@ module.exports = function (config) {
       './node_modules/angular/angular.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-route/angular-route.js',
-      './src/test/todoTest.js'
+      './src/*.js',
+      './src/**/*.js'
     ],
 
 
     // list of files to exclude
-    exclude: [],
-
+    exclude: [
+      "./src/Components/todo/todo-deprecate.js"
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "./src/test/*.js": ["webpack"]
+      "./src/**/*.js": ["webpack"],
+      "./src/*.js": ["webpack"]
     },
 
     webpack: {
@@ -97,7 +100,7 @@ module.exports = function (config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes

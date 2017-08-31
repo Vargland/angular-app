@@ -11,6 +11,4 @@ const todoController = angular
     })
     .name;
 
-    console.log(todoController)
-
-export default todoController;
+    export default todoController;
