@@ -1,0 +1,11 @@
+<div ng-init="$ctrl.fetchImg()" class='slider-container'>
+    <div ng-if="$ctrl.img.fetching"> 
+        {{ $ctrl.img.fetching }}
+        <span ng-init="$ctrl.fetchImgSuccess()"> loading... </span>
+    </div>
+    <div ng-if="!$ctrl.img.fetching">
+        <div ng-repeat="img in $ctrl.img.img">{{img.path}}
+           <img ng-src="{{img.path}}" alt="">
+        </div>    
+    </div>
+</div>

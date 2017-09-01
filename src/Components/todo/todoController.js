@@ -8,11 +8,11 @@ export default class todoController {
         this.$ngRedux = $ngRedux;
 
         const disconnect = $ngRedux.connect(state => ({
-                todo: state.data
+                todo: state.todo
             })
         )(this);
 
-        // remove the redux data binding when component is destroyed
+        // remove the redux todo binding when component is destroyed
         $scope.$on('$destroy', disconnect);
     };
 

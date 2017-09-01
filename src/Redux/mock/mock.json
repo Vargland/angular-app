@@ -4,6 +4,10 @@
         "description": "Redux mockData" ,
         "done": false,
         "important": false,
-        "editable": false              
+        "editable": false,
+        "img": {
+            "name": "Image 1",
+            "path": "~/Downloads/3419e3915be98bff2b30a06acf85ebf8--big-teeth-cat-species.jpg"
+        }               
     }
 ]
