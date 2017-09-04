@@ -1,8 +1,16 @@
 import _ from 'lodash';
-import mockTodo from './mock';
+import mock from './mock';
 
-let getMockTodo = () => {
-    return mockTodo;
+function getMockTodo () {
+    return mock;
 }
 
-export default getMockTodo;
+function getImgMock () {
+    let mockImg = _.map(mock, 'img');
+    
+    return mockImg;
+}
+export default { 
+    getMockTodo, 
+    getImgMock 
+} 

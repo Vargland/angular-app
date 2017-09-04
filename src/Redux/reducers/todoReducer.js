@@ -3,9 +3,9 @@ import mock from '../mock';
 import type from '../constants'
 
 const initialState = {
-    isFetching: false,
+    fetching: false,
     error: null,
-    todo: mock()
+    todo: mock.getMockTodo()
 };
 
 export default (state = initialState, action) => {
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
         case 'FETCH_TODO': //NOT USED
             
             return Object.assign({}, state, {
-                isFetching: true
+                fetching: true
             });
        
         case 'FETCH_TODO_SUCCESS': //NOT USED
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         case 'FETCH_TODO_ERROR': // NOT USED
             
             return Object.assign({}, state, {
-                isFetching: false,
+                fetching: false,
                 error: action.error,
                 todo: []
             });

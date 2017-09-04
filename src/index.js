@@ -9,13 +9,16 @@ import routeConfig from './Config/routeConfig';
 
 // Import components
 import todo from './Components/todo';
+import slider from './Components/slider';
+
 
 const myApp = angular
     .module("myApp", [
         uiRouter,
         ngRedux,
         ngReduxUiRouter,
-        todo
+        todo,
+        slider
     ])
     .config(['$locationProvider', ($locationProvider) => {
         $locationProvider.hashPrefix('!');
