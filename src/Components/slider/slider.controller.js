@@ -4,7 +4,10 @@ import * as type from '../../Redux/constants';
 export default class sliderController {
     
     constructor($scope, $ngRedux) {
+        const vm = this;
         this.$ngRedux = $ngRedux;
+        
+        vm.json = {}; 
 
         const disconnect = $ngRedux.connect(state => ({
                 img: state.slider
@@ -22,6 +25,4 @@ export default class sliderController {
     fetchImgSuccess () {
         this.$ngRedux.dispatch(actionTrigger(type.FETCH_IMG_SUCCESS, null));
     };
-
-
 }

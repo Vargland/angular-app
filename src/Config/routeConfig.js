@@ -5,15 +5,19 @@ export default function(myApp) {
       .state('index', {
         abstract: true,
         views: {
-          'todo': { template: '<ui-view></ui-view>' },
-          'slider': { template: '<ui-view></ui-view>' },
-          
+          'todo': { 
+            template: '<ui-view></ui-view>' 
+          },
+          'slider': { 
+            template: '<ui-view></ui-view>' 
+          },
         },
       })
-      .state('index.slider', {
+      .state('index.todo', {
         template: '<todo></todo>',
-        template: '<slider></slider>'
-        
+      })
+      .state('index.slider', {
+        template: '<slider></slider>',
       });
   }
   return RouterConfig;

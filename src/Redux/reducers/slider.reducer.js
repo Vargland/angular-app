@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
                 newState = Object.assign({}, state, {
                     fetching: false,
                 });
-    
+                console.log(newState)
                 return newState;
             }, 2000);
         
